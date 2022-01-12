@@ -6,13 +6,19 @@ using System.Threading.Tasks;
 
 namespace Bank_Kata
 {
-    class Bank 
+    public class Bank
     {
-        private List<Account> BankAccounts;
+        public readonly List<Account> BankAccounts = new();
         public string BankName = null;
 
-        public Bank()
+        public Bank(List<Account> newAccounts, string newName)
         {
+            for (int i = newAccounts.Count - 1; i >= 0; i--)
+            {
+                BankAccounts.Add(newAccounts[i]);
+            }
+
+            BankName = newName;
         }
     }
 }
